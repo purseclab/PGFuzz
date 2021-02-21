@@ -10,33 +10,33 @@ This version support total 34 states as in the below.
 4,&emsp;Air speed<br>
 5,&emsp;Ground speed<br>
 6,&emsp;Heading<br>
-Throttle<br>
-Altitude<br>
-Latitude<br>
-Longitude<br>
-Climb rate<br>
-Roll<br>
-Pitch<br>
-Yaw<br>
-Roll speed<br>
-Pitch speed<br>
-Yaw speed<br>
-Reference roll<br>
-Reference pitch<br>
-Reference Yaw<br>
-Reference altitude<br>
-Reference air speed<br>
-Status<br>
-Gyroscope/accelerometer<br>
-accelerometer/magnetometer<br>
-Barometer<br>
-GPS<br>
-Parachte<br>
-Pre-arm checking<br>
-mission<br>
-num_GPS<br>
-ALT_GPS<br>
-Z_speed<br>
+7,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Throttle<br>
+8,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Altitude<br>
+9,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Latitude<br>
+10,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Longitude<br>
+11,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Climb rate<br>
+12,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Roll<br>
+13,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Pitch<br>
+14,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Yaw<br>
+15,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Roll speed<br>
+16,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Pitch speed<br>
+17,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Yaw speed<br>
+18,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Reference roll<br>
+19,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Reference pitch<br>
+20,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Reference Yaw<br>
+21,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Reference altitude<br>
+22,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Reference air speed<br>
+23,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Status<br>
+24,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Gyroscope/accelerometer<br>
+25,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;accelerometer/magnetometer<br>
+26,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Barometer<br>
+27,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;GPS<br>
+28,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Parachte<br>
+29,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Pre-arm checking<br>
+30,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;mission<br>
+31,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;num_GPS<br>
+32,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ALT_GPS<br>
+33,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Z_speed<br>
 
 # Execution results
 This program classifies same type of states as one type of the state.
