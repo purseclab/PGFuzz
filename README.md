@@ -9,7 +9,10 @@ PGFUZZ is a policy-guided fuzzing framework. You can freely use it to define and
 Please stay tuned. We will disclose PGFUZZ soon.
 
 ## Setup
-
+We assume that you already finished setup for executing ArduPilot, PX4 and Paparazzi on Ubuntu LTS / Debian Linux. <br>
+- <a href="https://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux" target="_blank"> ArduPilot setup </a>
+- <a href="https://docs.px4.io/master/en/dev_setup/dev_env_linux_ubuntu.html" target="_blank"> PX4 setup </a>
+- <a href="https://wiki.paparazziuav.org/wiki/NPS" target="_blank"> Paparazzi setup </a>
 
 ## Bugs discovered by PGFUZZ
 If you want to closely look into bug cases discovered by PGFUZZ, please review the below documentation. 
