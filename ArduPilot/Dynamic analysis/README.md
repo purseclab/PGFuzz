@@ -100,7 +100,7 @@ python profiling_cmd_env.py
 
 ## Configurations
 ### When you want to increase accuracy of this dynamic analysis
-You can increase the number of iteration and measuring duration for each user command and environmental factor.
+You can increase the number of iterations and measuring duration for each user command and environmental factor.
 ```bash
 vim +114 profiling_cmd_env.py 
 ```
