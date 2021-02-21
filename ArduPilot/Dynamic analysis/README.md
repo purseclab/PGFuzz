@@ -81,12 +81,12 @@ SIM_PARA_PIN 9
 If you want to add additional devices (e.g., range beacons or optical flow sensors), please refer to the following <a href="https://ardupilot.org/dev/docs/copter-sitl-mavproxy-tutorial.html" target="_blank">documentation</a> and add configuration parameters to the preconditions.txt file.
 
 ## How to execute it?
-- First terminal window
+### First terminal window
 ```bash
 ~/ardupilot/Tools/autotest$ ./sim_vehicle.py -v ArduCopter --console -w --map
 ```
 
-- Second terminal window <br>
+### Second terminal window <br>
 Please note that before you execute dynamic analysis, you need to wait for finishing to setup SITL simulation loading. After you see "EKF2 IMU1 is using GPS" messages on SITL, you can execute dynamic analysis.<br>
 <img src="https://github.com/purseclab/PGFUZZ/blob/main/ArduPilot/Dynamic%20analysis/example/dynamic_ex1.jpg"> <br>
 
@@ -97,6 +97,10 @@ python profiling_cmd_env.py
 ```
 
 <img src="https://github.com/purseclab/PGFUZZ/blob/main/ArduPilot/Dynamic%20analysis/example/dynamic_ex2.jpg">
+
+After the dynamic analysis finishes to map a input to states, it will show the mapping results as follows.<br>
+For example, the changed RC 3 (throttle) value affects RC1, RC2, RC3, throttle, altitude, latitude, climb rate, reference altitude, GPS altitude, and vertical speed states.<br>
+<img src="https://github.com/purseclab/PGFUZZ/blob/main/ArduPilot/Dynamic%20analysis/example/dynamic_ex3.jpg"><br>
 
 ## Configurations
 ### When you want to increase accuracy of this dynamic analysis
