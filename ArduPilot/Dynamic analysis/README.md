@@ -1,5 +1,5 @@
 # Purpose of dynamic analysis
-This dynamic analysis for mapping user commands / environmental factors to each state (term).
+This dynamic analysis is for mapping user commands / environmental factors to each state (term).
 This version support total 34 states as in the below.
 
 (State number), (state name)<br>
