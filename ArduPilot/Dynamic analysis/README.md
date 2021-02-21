@@ -60,3 +60,21 @@ GPS.txt<br>
 parachute.txt<br>
 pre_arm.txt<br>
 mission.txt<br>
+
+## Setup (ArduPilot)
+# Setting up a simulator
+- <a href="https://ardupilot.org/dev/docs/setting-up-sitl-on-linux.html" target="_blank"> Setting up SITL on Linux </a>
+- <a href="https://ardupilot.org/dev/docs/copter-sitl-mavproxy-tutorial.html" target="_blank"> Tutorial</a>
+
+# Setting up preconditions to test user commands
+preconditions.txt file contain some configuration parameters to set sensors or devices. Some user commands require such a configuration. For example, the current version of the file include parameters to set a parachute. 
+```bash
+cat ./preconditions.txt
+CHUTE_ENABLED 1
+CHUTE_TYPE 10
+SERVO9_FUNCTION 27
+SIM_PARA_ENABLE 1
+SIM_PARA_PIN 9
+```
+If you want to add additional devices (e.g., range beacons or optical flow sensors), please refer to the following <a href="https://ardupilot.org/dev/docs/copter-sitl-mavproxy-tutorial.html" target="_blank">documentation</a> and add configuration parameters to the preconditions.txt file.
+
