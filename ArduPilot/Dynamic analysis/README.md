@@ -67,7 +67,7 @@ mission.txt<br>
 - <a href="https://ardupilot.org/dev/docs/copter-sitl-mavproxy-tutorial.html" target="_blank"> Tutorial</a>
 
 ## Setting up preconditions to test user commands
-preconditions.txt file contain some configuration parameters to set sensors or devices. Some user commands require such a configuration. For example, the current version of the file include parameters to set a parachute. 
+preconditions.txt file contain some configuration parameters to set sensors or devices. Some user commands require such a configuration. For example, the current version of the file includes parameters to set a parachute. 
 ```bash
 cat ./preconditions.txt
 CHUTE_ENABLED 1
