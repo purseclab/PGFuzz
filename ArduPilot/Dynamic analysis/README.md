@@ -1,7 +1,7 @@
 ## Purpose of dynamic analysis
 This dynamic analysis for mapping user commands / environmental factors to each state (term).
 This version support total 34 states as in the below.
--------------------
+
 RC1
 RC2
 RC3
@@ -44,7 +44,7 @@ The results of the analysis will be store in ./results/*.txt
 Each txt file contains user commands and/or environmental factors which affect the state.
 For instance, 'roll.txt' includes all inputs which can change the roll state.
 This version categorizes inputs to 15 states as in the below.
--------------------
+
 roll.txt
 pitch.txt
 throttle.txt
