@@ -62,6 +62,8 @@ pre_arm.txt<br>
 mission.txt<br>
 
 # Setup (ArduPilot)
+This program is based on Python 2.7.
+
 ## Setting up a simulator
 - <a href="https://ardupilot.org/dev/docs/setting-up-sitl-on-linux.html" target="_blank"> Setting up SITL on Linux </a>
 - <a href="https://ardupilot.org/dev/docs/copter-sitl-mavproxy-tutorial.html" target="_blank"> Tutorial</a>
