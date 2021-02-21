@@ -2,14 +2,14 @@
 This dynamic analysis for mapping user commands / environmental factors to each state (term).
 This version support total 34 states as in the below.
 
-State number. state name
-0. &emsp; RC1<br>
-1. RC2<br>
-2. RC3<br>
-3. RC4<br>
-4. Air speed<br>
-5. Ground speed<br>
-6. Heading<br>
+(State number), (state name)
+0,&emsp;RC1<br>
+1,&emsp;RC2<br>
+2,&emsp;RC3<br>
+3,&emsp;RC4<br>
+4,&emsp;Air speed<br>
+5,&emsp;Ground speed<br>
+6,&emsp;Heading<br>
 Throttle<br>
 Altitude<br>
 Latitude<br>
