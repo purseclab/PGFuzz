@@ -7,3 +7,7 @@ PGFUZZ is a policy-guided fuzzing framework. You can freely use it to define and
 </p>
 
 Please stay tuned. We will disclose PGFUZZ soon.
+
+
+## Bugs discovered by PGFUZZ
+If you closely look into bug cases discovered by PGFUZZ, please review <a href="https://docs.google.com/spreadsheets/d/1zhCx4SzuMZQDMSzBtofIpiqJt2DfjhDlPYxJy1D023M/edit?usp=sharing">this documentation</a>.
