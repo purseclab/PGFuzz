@@ -36,7 +36,7 @@ This version support total 34 states as in the below.
 30,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;mission<br>
 31,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;num_GPS<br>
 32,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ALT_GPS<br>
-33,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Z_speed<br>
+33,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Vertical speed<br>
 
 # Execution results
 This program classifies same type of states as one type of the state.
