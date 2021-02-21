@@ -94,6 +94,8 @@ cd ~/PGFUZZ/ArduPilot/Dynamic analysis/
 python profiling_cmd_env.py
 ```
 
+<img src="https://github.com/purseclab/PGFUZZ/blob/main/ArduPilot/Dynamic%20analysis/example/dynamic_ex2.jpg">
+
 ## Configurations
 ### When you want to increase accuracy of this dynamic analysis
 You can increase the number of iteration and measuring duration for each user command and environmental factor.
