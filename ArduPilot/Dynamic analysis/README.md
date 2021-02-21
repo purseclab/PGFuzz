@@ -2,40 +2,40 @@
 This dynamic analysis for mapping user commands / environmental factors to each state (term).
 This version support total 34 states as in the below.
 
-RC1
-RC2
-RC3
-RC4
-Air speed
-Ground speed
-Heading	
-Throttle
-Altitude
-Latitude
-Longitude
-Climb rate
-Roll
-Pitch
-Yaw
-Roll speed
-Pitch speed
-Yaw speed
-Reference roll
-Reference pitch
-Reference Yaw
-Reference altitude
-Reference air speed
-Status
-Gyroscope/accelerometer
-accelerometer/magnetometer
-Barometer
-GPS
-Parachte
-Pre-arm checking
-mission
-num_GPS
-ALT_GPS
-Z_speed
+RC1<br>
+RC2<br>
+RC3<br>
+RC4<br>
+Air speed<br>
+Ground speed<br>
+Heading<br>
+Throttle<br>
+Altitude<br>
+Latitude<br>
+Longitude<br>
+Climb rate<br>
+Roll<br>
+Pitch<br>
+Yaw<br>
+Roll speed<br>
+Pitch speed<br>
+Yaw speed<br>
+Reference roll<br>
+Reference pitch<br>
+Reference Yaw<br>
+Reference altitude<br>
+Reference air speed<br>
+Status<br>
+Gyroscope/accelerometer<br>
+accelerometer/magnetometer<br>
+Barometer<br>
+GPS<br>
+Parachte<br>
+Pre-arm checking<br>
+mission<br>
+num_GPS<br>
+ALT_GPS<br>
+Z_speed<br>
 
 ## Execution results
 This program classifies same type of states as one type of the state.
@@ -60,4 +60,3 @@ GPS.txt
 parachute.txt
 pre_arm.txt
 mission.txt
--------------------
