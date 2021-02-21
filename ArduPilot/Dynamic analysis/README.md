@@ -84,7 +84,7 @@ If you want to add additional devices (e.g., range beacons or optical flow senso
 ~/ardupilot/Tools/autotest$ ./sim_vehicle.py -v ArduCopter --console -w --map
 ```
 Please note that before you execute the following command, you need to wait for finishing to setup SITL simulation loading. If you see the following messages, 
-<img src="./example.dynamic_ex1.jpg">
+<img src="https://github.com/purseclab/PGFUZZ/blob/main/ArduPilot/Dynamic%20analysis/example/dynamic_ex1.jpg"> <br>
 you can execute dynamic analysis.
 
 - Second terminal window
