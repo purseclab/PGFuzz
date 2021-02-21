@@ -2,8 +2,8 @@
 This dynamic analysis for mapping user commands / environmental factors to each state (term).
 This version support total 34 states as in the below.
 
-(State number), (state name)
-0,&emsp;RC1<br>
+(State number), (state name)<br>
+0,&emsp;&emsp;&emsp;RC1<br>
 1,&emsp;RC2<br>
 2,&emsp;RC3<br>
 3,&emsp;RC4<br>
