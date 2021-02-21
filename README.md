@@ -10,7 +10,7 @@ Please stay tuned. We will disclose PGFUZZ soon.
 
 
 ## Bugs discovered by PGFUZZ
-If you closely look into bug cases discovered by PGFUZZ, please review the following documentation. 
-<a href="https://docs.google.com/spreadsheets/d/1zhCx4SzuMZQDMSzBtofIpiqJt2DfjhDlPYxJy1D023M/edit?usp=sharing"> <img align="center" width="520"  src="https://kimhyungsub.github.io/Bug_report.jpg"> </a>.
+If you closely look into bug cases discovered by PGFUZZ, please review the below documentation. 
+<a href="https://docs.google.com/spreadsheets/d/1zhCx4SzuMZQDMSzBtofIpiqJt2DfjhDlPYxJy1D023M/edit?usp=sharing"> <img align="center" width="720"  src="https://kimhyungsub.github.io/Bug_report.jpg"> </a>.
 
 
