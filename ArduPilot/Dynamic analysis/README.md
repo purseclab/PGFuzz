@@ -113,4 +113,4 @@ vim +114 profiling_cmd_env.py
 You can modify 'Measuring_duration' and/or 'Measuring_iteration'.
 
 ### If you want to add or remove inputs
-You can add or remove a user command from cmds.txt / envs.txt.
+You can add or remove a user command (or environmeantal factor) from cmds.txt / envs.txt.
