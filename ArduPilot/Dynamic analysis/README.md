@@ -78,3 +78,14 @@ SIM_PARA_PIN 9
 ```
 If you want to add additional devices (e.g., range beacons or optical flow sensors), please refer to the following <a href="https://ardupilot.org/dev/docs/copter-sitl-mavproxy-tutorial.html" target="_blank">documentation</a> and add configuration parameters to the preconditions.txt file.
 
+## How to execute it?
+- First terminal window
+```bash
+~/ardupilot/Tools/autotest$ ./sim_vehicle.py -v ArduCopter --console -w --map
+```
+
+- Second terminal window
+```bash
+cd ~/PGFUZZ/ArduPilot/Dynamic analysis/
+python profiling_cmd_env.py
+```
