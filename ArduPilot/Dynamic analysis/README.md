@@ -1,4 +1,4 @@
-## Purpose of dynamic analysis
+# Purpose of dynamic analysis
 This dynamic analysis for mapping user commands / environmental factors to each state (term).
 This version support total 34 states as in the below.
 
@@ -37,7 +37,7 @@ num_GPS<br>
 ALT_GPS<br>
 Z_speed<br>
 
-## Execution results
+# Execution results
 This program classifies same type of states as one type of the state.
 For example, we consider 'roll', 'reference roll', and 'roll speed' as 'roll' state.
 The results of the analysis will be store in ./results/*.txt
@@ -61,12 +61,12 @@ parachute.txt<br>
 pre_arm.txt<br>
 mission.txt<br>
 
-## Setup (ArduPilot)
-# Setting up a simulator
+# Setup (ArduPilot)
+## Setting up a simulator
 - <a href="https://ardupilot.org/dev/docs/setting-up-sitl-on-linux.html" target="_blank"> Setting up SITL on Linux </a>
 - <a href="https://ardupilot.org/dev/docs/copter-sitl-mavproxy-tutorial.html" target="_blank"> Tutorial</a>
 
-# Setting up preconditions to test user commands
+## Setting up preconditions to test user commands
 preconditions.txt file contain some configuration parameters to set sensors or devices. Some user commands require such a configuration. For example, the current version of the file include parameters to set a parachute. 
 ```bash
 cat ./preconditions.txt
