@@ -1,3 +1,4 @@
+## Purpose of dynamic analysis
 This dynamic analysis for mapping user commands / environmental factors to each state (term).
 This version support total 34 states as in the below.
 -------------------
@@ -35,7 +36,8 @@ mission
 num_GPS
 ALT_GPS
 Z_speed
--------------------
+
+## Execution results
 This program classifies same type of states as one type of the state.
 For example, we consider 'roll', 'reference roll', and 'roll speed' as 'roll' state.
 The results of the analysis will be store in ./results/*.txt
