@@ -115,6 +115,7 @@ avg_vertical_speed = []
 Precondition_path = "preconditions.txt"
 Measuring_duration = 3
 Measuring_iteration = 3
+minimum_sd = 0.00001
 number_of_states = 34
 #------------------------------------------------------------------------------------
 def set_preconditions(filepath):
@@ -954,6 +955,8 @@ def profile(input_type, targetInput, input_value):
 			for l in range(number_of_states):
 				SD_baseline[l] = SD_baseline[l] / count 
 				sys.stdout.write("(%d)%f " %(l, SD_baseline[l]))
+
+			re_launch()
 		else:
 			print("############### target input:%s ###############"%targetInput)
 			for l in range(number_of_states):
@@ -962,11 +965,12 @@ def profile(input_type, targetInput, input_value):
 
 		print "---------------------------------------------"
 		sys.stdout.flush()
-	
+
+		global minimum_sd 
 		for l in range(number_of_states):
-			if SD_target_input[l] != 0 and (abs(SD_baseline[l] - SD_target_input[l])) > SD_baseline[l]:
+			if SD_target_input[l] > minimum_sd and (abs(SD_baseline[l] - SD_target_input[l])) > SD_baseline[l]:
 				store_result(state=l, Input = targetInput)
-				print("Changed state:%d"%l)
+				print("Changed state:%d (SD: %f)"% (l, SD_target_input[l]))
 #------------------------------------------------------------------------------------
 
 # Create the connection
@@ -1102,6 +1106,14 @@ set_preconditions(Precondition_path)
 
 original_val = 0.0
 
+for i in range(len(cmd_name)):
+
+        print("[Analyzing user commands] %s" %cmd_name[i])
+        profile(input_type="cmd", targetInput=cmd_name[i], input_value=cmd_number[i])
+        start_profiling = 1
+
+        re_launch()
+
 #--------------------------------------------------------
 for i in range(len(env_name)):
 	target_param = env_name[i]
@@ -1130,6 +1142,7 @@ for i in range(len(env_name)):
 
 
 #--------------------------------------------------------
+"""
 for i in range(len(cmd_name)):
 
         print("[Analyzing user commands] %s" %cmd_name[i])
@@ -1137,7 +1150,7 @@ for i in range(len(cmd_name)):
         start_profiling = 1
 
         re_launch()
-
+"""
 #------------------------------------------------------------------------------------------------		
 print("##################### the end of dynamic analysis #####################")
 while True:
