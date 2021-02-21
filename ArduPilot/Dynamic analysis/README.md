@@ -111,3 +111,6 @@ You can increase the number of iterations and measuring duration for each user c
 vim +114 profiling_cmd_env.py 
 ```
 You can modify 'Measuring_duration' and/or 'Measuring_iteration'.
+
+### If you want to add or remove inputs
+You can add or remove a user command from cmds.txt / envs.txt.
