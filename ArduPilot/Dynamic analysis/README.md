@@ -100,7 +100,8 @@ python profiling_cmd_env.py
 <img src="https://github.com/purseclab/PGFUZZ/blob/main/ArduPilot/Dynamic%20analysis/example/dynamic_ex2.jpg">
 
 After the dynamic analysis finishes to map a input to states, it will show the mapping results as follows.<br>
-For example, the changed RC 3 (throttle) value affects RC1, RC2, RC3, throttle, altitude, latitude, climb rate, reference altitude, GPS altitude, and vertical speed states.<br>
+For example, the changed RC 1 (roll angle) value affects RC1, air speed, ground speed, heading, throttle, altitude, latitude, longitude, climb rate, roll, yaw, roll speed, yaw speed, reference roll, reference yaw, reference altitude, reference air speed, altitude measured from GPS, and vertical speed states
+.<br>
 <img src="https://github.com/purseclab/PGFUZZ/blob/main/ArduPilot/Dynamic%20analysis/example/dynamic_ex3.jpg"><br>
 
 ## Configurations
