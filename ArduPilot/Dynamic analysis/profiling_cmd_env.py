@@ -114,7 +114,7 @@ avg_vertical_speed = []
 # Configuration
 Precondition_path = "preconditions.txt"
 Measuring_duration = 3
-Measuring_iteration = 2
+Measuring_iteration = 3
 number_of_states = 34
 #------------------------------------------------------------------------------------
 def set_preconditions(filepath):
@@ -773,8 +773,14 @@ def profile(input_type, targetInput, input_value):
 
 	for iteration in range(start_profiling, 2):
 		count = 0
+		itera = 0
 		# range(x): from 0 to (x-1)
-		for i in range(Measuring_iteration):
+		if iteration == 0:
+			itera = Measuring_iteration + 2
+		else:
+			itera = Measuring_iteration
+
+		for i in range(itera):
 			if iteration == 0:
 				print("------------------(Build baseline states)------------------")
 			else:
@@ -958,7 +964,7 @@ def profile(input_type, targetInput, input_value):
 		sys.stdout.flush()
 	
 		for l in range(number_of_states):
-			if (abs(SD_baseline[l] - SD_target_input[l])) > SD_baseline[l]:
+			if SD_target_input[l] != 0 and (abs(SD_baseline[l] - SD_target_input[l])) > SD_baseline[l]:
 				store_result(state=l, Input = targetInput)
 				print("Changed state:%d"%l)
 #------------------------------------------------------------------------------------
@@ -1096,16 +1102,6 @@ set_preconditions(Precondition_path)
 
 original_val = 0.0
 
-for i in range(len(cmd_name)):
-
-	print("[Analyzing user commands] %s" %cmd_name[i])
-        profile(input_type="cmd", targetInput=cmd_name[i], input_value=cmd_number[i])
-        start_profiling = 1
-
-        re_launch()
-
-
-
 #--------------------------------------------------------
 for i in range(len(env_name)):
 	target_param = env_name[i]
@@ -1134,6 +1130,14 @@ for i in range(len(env_name)):
 
 
 #--------------------------------------------------------
+for i in range(len(cmd_name)):
+
+        print("[Analyzing user commands] %s" %cmd_name[i])
+        profile(input_type="cmd", targetInput=cmd_name[i], input_value=cmd_number[i])
+        start_profiling = 1
+
+        re_launch()
+
 #------------------------------------------------------------------------------------------------		
 print("##################### the end of dynamic analysis #####################")
 while True:
