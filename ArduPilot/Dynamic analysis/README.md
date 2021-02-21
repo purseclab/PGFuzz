@@ -45,18 +45,18 @@ Each txt file contains user commands and/or environmental factors which affect t
 For instance, 'roll.txt' includes all inputs which can change the roll state.
 This version categorizes inputs to 15 states as in the below.
 
-roll.txt
-pitch.txt
-throttle.txt
-yaw.txt
-speed.txt
-altitude.txt
-position.txt
-status.txt
-gyro.txt
-accel.txt
-baro.txt
-GPS.txt
-parachute.txt
-pre_arm.txt
-mission.txt
+roll.txt<br>
+pitch.txt<br>
+throttle.txt<br>
+yaw.txt<br>
+speed.txt<br>
+altitude.txt<br>
+position.txt<br>
+status.txt<br>
+gyro.txt<br>
+accel.txt<br>
+baro.txt<br>
+GPS.txt<br>
+parachute.txt<br>
+pre_arm.txt<br>
+mission.txt<br>
