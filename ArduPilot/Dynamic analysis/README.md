@@ -84,7 +84,7 @@ If you want to add additional devices (e.g., range beacons or optical flow senso
 ~/ardupilot/Tools/autotest$ ./sim_vehicle.py -v ArduCopter --console -w --map
 ```
 
-- Second terminal window
+- Second terminal window <br>
 Please note that before you execute dynamic analysis, you need to wait for finishing to setup SITL simulation loading. After you see "EKF2 IMU1 is using GPS" messages on SITL, you can execute dynamic analysis.<br>
 <img src="https://github.com/purseclab/PGFUZZ/blob/main/ArduPilot/Dynamic%20analysis/example/dynamic_ex1.jpg"> <br>
 
