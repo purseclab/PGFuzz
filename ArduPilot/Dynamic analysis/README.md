@@ -84,7 +84,7 @@ If you want to add additional devices (e.g., range beacons or optical flow senso
 ## How to execute it?
 ### First terminal window
 ```bash
-~/ardupilot/Tools/autotest$ ./sim_vehicle.py -v ArduCopter --console -w --map
+~/ardupilot/Tools/autotest$ ./sim_vehicle.py -v ArduCopter --console -w --map --speedup=2
 ```
 
 ### Second terminal window <br>
