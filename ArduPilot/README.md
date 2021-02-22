@@ -1,7 +1,7 @@
 # PGFUZZ for ArduPilot
 
 ## Mapping inputs to states (terms)
-Please refer to <a href="https://github.com/purseclab/PGFUZZ/tree/main/ArduPilot/Dynamic%20analysis" target="_blank"> this </a>.
+Please refer to <a href="https://github.com/purseclab/PGFUZZ/tree/main/ArduPilot/Dynamic%20analysis" target="_blank"> this</a>.
 
 ## How to execute it?
 ```bash
