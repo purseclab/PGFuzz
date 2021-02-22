@@ -113,7 +113,7 @@ avg_vertical_speed = []
 
 # Configuration
 Precondition_path = "preconditions.txt"
-Measuring_duration = 3
+Measuring_duration = 1
 Measuring_iteration = 3
 minimum_sd = 0.00001
 number_of_states = 34
@@ -172,9 +172,14 @@ def parsing_command(filepath):
 def Standard_deviation(list):
 	# Standard deviation of list 
 	# Using sum() + list comprehension 
-	mean = sum(list) / len(list) 
-	variance = sum([((x - mean) ** 2) for x in list]) / len(list) 
-	res = variance ** 0.5
+
+	# Prevent division by zero
+	if len(list) > 0:
+		mean = sum(list) / len(list) 
+		variance = sum([((x - mean) ** 2) for x in list]) / len(list) 
+		res = variance ** 0.5
+	else:
+		res = 0
 	
 	return res
 #------------------------------------------------------------------------------------
@@ -460,9 +465,6 @@ def read_loop():
                         handle_param(msg)
 		elif msg_type == "GPS_RAW_INT":
 			handle_gps(msg)
-		elif msg_type == "ORBIT_EXECUTION_STATUS":
-			for i in range(5):
-				print("[ORBIT_EXECUTION_STATUS ]")
 
 #---------------------------- (End) READ STATES OF AP -----------------------------
 	
@@ -540,7 +542,7 @@ def re_launch():
 	master.mav.command_long_send(master.target_system, master.target_component,
                              mavutil.mavlink.MAV_CMD_PREFLIGHT_REBOOT_SHUTDOWN, 0,
                              1, 0, 0, 0, 0, 0, 0)
-	time.sleep(45)
+	time.sleep(20)
 	
 	# Step 4. Re-take off the vehicle
 	master.mav.set_mode_send(
@@ -552,8 +554,6 @@ def re_launch():
                 if current_flight_mode == "GUIDED":
                         break
                 time.sleep(0.2)
-
-	time.sleep(3)
 	
         # Reset preconditions to fuzz the target policy
         global Precondition_path
@@ -568,7 +568,7 @@ def re_launch():
     		1, 0, 0, 0, 0, 0, 0)
 
 	
-	time.sleep(3)
+	time.sleep(1)
 
 	master.mav.command_long_send(
                 master.target_system,  # target_system
@@ -583,7 +583,7 @@ def re_launch():
                 0, # param6
                 100) # param7- altitude
 
-	time.sleep(20)
+	time.sleep(5)
 	goal_throttle = 1500
 
 def init_files():
@@ -1064,7 +1064,7 @@ while not ack:
     break
 
 
-time.sleep(20)
+time.sleep(5)
 
 # Maintain mid-position of stick on RC controller 
 goal_throttle = 1500
@@ -1105,7 +1105,7 @@ for i in range(number_of_states):
 set_preconditions(Precondition_path)
 
 original_val = 0.0
-
+"""
 for i in range(len(cmd_name)):
 
         print("[Analyzing user commands] %s" %cmd_name[i])
@@ -1113,7 +1113,7 @@ for i in range(len(cmd_name)):
         start_profiling = 1
 
         re_launch()
-
+"""
 #--------------------------------------------------------
 for i in range(len(env_name)):
 	target_param = env_name[i]
@@ -1142,7 +1142,7 @@ for i in range(len(env_name)):
 
 
 #--------------------------------------------------------
-"""
+
 for i in range(len(cmd_name)):
 
         print("[Analyzing user commands] %s" %cmd_name[i])
@@ -1150,7 +1150,7 @@ for i in range(len(cmd_name)):
         start_profiling = 1
 
         re_launch()
-"""
+
 #------------------------------------------------------------------------------------------------		
 print("##################### the end of dynamic analysis #####################")
 while True:
