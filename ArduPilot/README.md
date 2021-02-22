@@ -19,3 +19,7 @@ It is a SITL Simulator (Software in the Loop). You can monitor the RV's current 
 It shows status of fuzzing such as mutated inputs, violated policies, propositional, and global distances.<br>
 <img src="https://github.com/purseclab/PGFUZZ/blob/main/ArduPilot/example/ArduPilot_ex2.jpg">
 
+
+## Evaluate the noise elimination component
+Please refer to <a href="https://github.com/purseclab/PGFUZZ/tree/main/ArduPilot/EEN" target="_blank"> this</a>.
+
