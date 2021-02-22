@@ -1,6 +1,7 @@
 ## Purpose of the noise elimination
-This is for eliminating the environmental noise such as sensor noise and wind effect. <br>
-Without noise elimination, PGFUZZ may incorrectly guide the mutation engine.
+This shows how we could evaluate the noise elimination component of PGFUZZ. <br>
+The noise elimination component is for eliminating the environmental noise such as sensor noise and wind effect. <br>
+Without noise elimination, PGFUZZ may incorrectly guide the mutation engine. <br>
 
 ## How to execute it?
 ### First terminal window
