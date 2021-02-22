@@ -1,0 +1,4 @@
+wind 0
+wind_dir 180
+wind 0
+wind_dir 180
