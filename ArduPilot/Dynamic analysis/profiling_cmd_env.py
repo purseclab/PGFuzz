@@ -535,14 +535,15 @@ def re_launch():
 	set_rc_channel_pwm(1, 1500)
 	set_rc_channel_pwm(2, 1500)
 	set_rc_channel_pwm(4, 1500)
-
+        
 	time.sleep(3)
 	
+        goal_throttle = 1000
 	# Step 2. Reboot the RV's control program
 	master.mav.command_long_send(master.target_system, master.target_component,
                              mavutil.mavlink.MAV_CMD_PREFLIGHT_REBOOT_SHUTDOWN, 0,
                              1, 0, 0, 0, 0, 0, 0)
-	time.sleep(20)
+	time.sleep(40)
 	
 	# Step 4. Re-take off the vehicle
 	master.mav.set_mode_send(
