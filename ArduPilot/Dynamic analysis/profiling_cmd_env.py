@@ -1054,17 +1054,17 @@ master.mav.command_long_send(
                 0, # param5
                 0, # param6
                 100) # param7- altitude
-
+"""
 ack = False
 while not ack:
     # Wait for ACK command
-    ack_msg = master.recv_match(type='COMMAND_ACK', blocking=True)
+    ack_msg = master.recv_match(type='COMMAND_ACK', blocking=False)
     ack_msg = ack_msg.to_dict()
 
     print(mavutil.mavlink.enums['MAV_RESULT'][ack_msg['result']].description)
     break
 
-
+"""
 time.sleep(5)
 
 # Maintain mid-position of stick on RC controller 
@@ -1115,6 +1115,7 @@ for i in range(len(cmd_name)):
 
         re_launch()
 """
+
 #--------------------------------------------------------
 for i in range(len(env_name)):
 	target_param = env_name[i]
