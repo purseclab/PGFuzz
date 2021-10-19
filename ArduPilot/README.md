@@ -13,6 +13,12 @@ git checkout ea559a56aa2ce9ede932e22e5ea28eb1df07781c
 git submodule update --init --recursive
 ```
 
+### Check whether ArduPilot works well on your environment
+```bash
+cd ~/ardupilot_pgfuzz/
+./Tools/autotest/sim_vehicle.py -v ArduCopter --console --map -w
+```
+
 ### Execute PGFUZZ
 ```bash
 cd ~/pgfuzz/ArduPilot/
