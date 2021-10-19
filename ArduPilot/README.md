@@ -22,7 +22,7 @@ cd ~/ardupilot_pgfuzz/
 ### Execute PGFUZZ
 ```bash
 cd ~/pgfuzz/ArduPilot/
-python pgfuzz.py
+python2 pgfuzz.py
 ```
 
 It creates two terminal windows.
