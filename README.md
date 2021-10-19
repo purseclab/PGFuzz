@@ -14,6 +14,12 @@ We assume that you already finished setup for executing ArduPilot, PX4 and Papar
 - <a href="https://docs.px4.io/master/en/dev_setup/dev_env_linux_ubuntu.html" target="_blank"> PX4 setup </a>
 - <a href="https://wiki.paparazziuav.org/wiki/NPS" target="_blank"> Paparazzi setup </a>
 
+## Download
+```bash
+cd ~
+git clone https://github.com/purseclab/PGFUZZ.git pgfuzz
+```
+
 ## Bugs discovered by PGFUZZ
 If you want to closely look into bug cases discovered by PGFUZZ, please review the below documentation. 
 <a href="https://docs.google.com/spreadsheets/d/1zhCx4SzuMZQDMSzBtofIpiqJt2DfjhDlPYxJy1D023M/edit?usp=sharing"> <img align="center" width="760"  src="https://kimhyungsub.github.io/Bug_report.jpg"> </a>.

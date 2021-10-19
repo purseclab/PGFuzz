@@ -4,8 +4,18 @@
 Please refer to <a href="https://github.com/purseclab/PGFUZZ/tree/main/ArduPilot/Dynamic%20analysis" target="_blank"> this</a>.
 
 ## How to execute it?
+### Download ArduPilot
 ```bash
-cd ~/PGFUZZ/ArduPilot/
+cd ~
+git clone https://github.com/ArduPilot/ardupilot.git ardupilot_pgfuzz
+cd ardupilot_pgfuzz
+git checkout ea559a56aa2ce9ede932e22e5ea28eb1df07781c
+git submodule update --init --recursive
+```
+
+### Execute PGFUZZ
+```bash
+cd ~/pgfuzz/ArduPilot/
 python pgfuzz.py
 ```
 
