@@ -14,10 +14,26 @@ We assume that you already finished setup for executing ArduPilot, PX4 and Papar
 - <a href="https://docs.px4.io/master/en/dev_setup/dev_env_linux_ubuntu.html" target="_blank"> PX4 setup </a>
 - <a href="https://wiki.paparazziuav.org/wiki/NPS" target="_blank"> Paparazzi setup </a>
 
-## Download
+## Download PGFUZZ
 ```bash
 cd ~
 git clone https://github.com/purseclab/PGFUZZ.git pgfuzz
+```
+
+## Download a virtual machine image
+If you are not used to ArduPilot build environment, I would recommand you to download <a href="https://drive.google.com/file/d/1OFClgdXTS5aeCWzEdLrlOAWfC4VDDbSp/view?usp=sharing" target="_blank"> the virtual machine image</a> and run PGFUZZ.
+
+The image is created on VMware Workstation Player
+
+OS: Ubuntu 18.04
+
+User name: pgfuzz
+
+password: pgfuzz
+
+```bash
+cd ~
+cd pgfuzz
 ```
 
 ## Bugs discovered by PGFUZZ
