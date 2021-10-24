@@ -19,6 +19,13 @@ cd ~/ardupilot_pgfuzz/
 ./Tools/autotest/sim_vehicle.py -v ArduCopter --console --map -w
 ```
 
+### Add environment variables
+They must point to your pgfuzz and ArduPilot directories.
+```bash
+export PGFUZZ_HOME=/home/pgfuzz/pgfuzz/
+export ARDUPILOT_HOME=/home/pgfuzz/ardupilot_pgfuzz/
+```
+
 ### Execute PGFUZZ
 ```bash
 cd ~/pgfuzz/ArduPilot/
