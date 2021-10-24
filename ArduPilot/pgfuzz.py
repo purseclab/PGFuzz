@@ -1,14 +1,24 @@
 import time
 from subprocess import *
+import os
 
+PGFUZZ_HOME = os.getenv("PGFUZZ_HOME")
+
+if PGFUZZ_HOME is None:
+    raise Exception("PGFUZZ_HOME environment variable is not set!")
+
+ARDUPILOT_HOME = os.getenv("ARDUPILOT_HOME")
+
+if ARDUPILOT_HOME is None:
+    raise Exception("ARDUPILOT_HOME environment variable is not set!")
 
 open("restart.txt", "w").close()
 
-c = 'gnome-terminal -- python2 ~/pgfuzz/ArduPilot/open_simulator.py &'
+c = 'gnome-terminal -- python2 ' + PGFUZZ_HOME + 'ArduPilot/open_simulator.py &'
 handle = Popen(c, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True)
 
 time.sleep(45)
-c = 'gnome-terminal -- python2 ~/pgfuzz/ArduPilot/fuzzing.py &'
+c = 'gnome-terminal -- python2 ' + PGFUZZ_HOME + 'ArduPilot/fuzzing.py &'
 handle = Popen(c, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True)
 
 while True:
@@ -20,6 +30,6 @@ while True:
 		f.close()
 		open("restart.txt", "w").close()
 
-		c = 'gnome-terminal -- python2 ~/pgfuzz/ArduPilot/open_simulator.py &'
+		c = 'gnome-terminal -- python2 ' + PGFUZZ_HOME + 'ArduPilot/open_simulator.py &'
 		handle = Popen(c, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True)
 	

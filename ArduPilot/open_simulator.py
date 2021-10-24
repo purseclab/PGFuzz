@@ -8,7 +8,13 @@ import psutil
 
 #subprocess.call(['~/ardupilot_4_0_3/Tools/autotest/sim_vehicle.py -v ArduCopter --console --map -w'], shell=True)
 
-c = '~/ardupilot_pgfuzz/Tools/autotest/sim_vehicle.py -v ArduCopter --console --map -w' 
+ARDUPILOT_HOME = os.getenv("ARDUPILOT_HOME")
+
+if ARDUPILOT_HOME is None:
+    raise Exception("ARDUPILOT_HOME environment variable is not set!")
+
+c = ARDUPILOT_HOME + 'Tools/autotest/sim_vehicle.py -v ArduCopter --console --map -w'
+#c = '~/ardupilot_pgfuzz/Tools/autotest/sim_vehicle.py -v ArduCopter --console --map -w' 
 
 #handle = Popen(c, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True)
 handle = Popen(c, shell=True)
