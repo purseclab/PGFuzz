@@ -17,7 +17,7 @@ open("restart.txt", "w").close()
 c = 'gnome-terminal -- python2 ' + PGFUZZ_HOME + 'ArduPilot/open_simulator.py &'
 handle = Popen(c, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True)
 
-time.sleep(60)
+time.sleep(90)
 c = 'gnome-terminal -- python2 ' + PGFUZZ_HOME + 'ArduPilot/fuzzing.py &'
 handle = Popen(c, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True)
 
