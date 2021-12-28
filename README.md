@@ -40,4 +40,12 @@ cd pgfuzz
 If you want to closely look into bug cases discovered by PGFUZZ, please review the below documentation. 
 <a href="https://docs.google.com/spreadsheets/d/1zhCx4SzuMZQDMSzBtofIpiqJt2DfjhDlPYxJy1D023M/edit?usp=sharing"> <img align="center" width="760"  src="https://kimhyungsub.github.io/Bug_report.jpg"> </a>.
 
+## Demonstration videos
+### Case 1
+- <a href="https://youtu.be/EiWLCj-pQ7M"> Correct behavior of the drone parachute </a>
+- <a href="https://youtu.be/nAKTAzhOKAU"> Buggy behavior of the drone parachute </a> 
 
+
+### Case 2
+- <a href="https://youtu.be/DmCsFHjZV_Q"> Correct behavior of the GPS fail-safe </a>
+- <a href="https://youtu.be/IzUYDbniVRE"> Buggy behavior of the GPS fail-safe </a>
