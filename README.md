@@ -43,7 +43,7 @@ If you want to closely look into bug cases discovered by PGFUZZ, please review t
 ## 5. Demonstration videos
 ### Case 1
 - <a href="https://youtu.be/EiWLCj-pQ7M"> Correct behavior of the drone parachute </a>
-- <a href="https://youtu.be/nAKTAzhOKAU"> Buggy behavior of the drone parachute </a>  
+- <a href="https://youtu.be/nhmKE03-bnk"> Buggy behavior of the drone parachute and parachute operations after patching the bug</a>  
 <br> <b>Q</b>: Why is this case a logic bug? <br>
 <b>A</b>: the ArduPilot official documentation states that the following four conditions must hold to deploy a parachute while preserving the drone safety: (1) the motors must be armed, (2) the vehicle must not be in the FLIP or ACRO flight modes, (3) the barometer must show that the
 vehicle is not climbing, and (4) the vehicle’s current altitude must be above the CHUTE_ALT_MIN parameter value. <br>
