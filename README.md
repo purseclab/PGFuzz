@@ -52,7 +52,7 @@ This leads to a policy violation where the vehicle deploys the parachute when it
 
 ### Case 2
 - <a href="https://youtu.be/DmCsFHjZV_Q"> Correct behavior of the GPS fail-safe </a>
-- <a href="https://youtu.be/IzUYDbniVRE"> Buggy behavior of the GPS fail-safe </a>
+- <a href="https://youtu.be/gI2BPWIkYTs"> (i) Buggy behavior of the GPS fail-safe and (ii) GPS fail-safe operations after patching the bug</a>
 <br> <b>Q</b>: Why is this case a logic bug? <br>
 <b>A</b>: The buggy behavior occurs because PX4 developers remove a parameter range check. 
 PX4 v1.7.4 forces COM_POS_FS_DELAY parameter to have a value in the valid range. 
