@@ -112,6 +112,8 @@ You need to change a function name 'main'. This is because there will be two mai
 (I just changed these main functions' name to main_1.)
 
 ### 7) Manually copy a list of *.o files after 5)
+Paste the list into any text editor and then get rid of "End of Line" (EOL)
+In my case, I used 'notepad'.
 Open notepad -> Edit -> Blank operations -> select "EOL to Space"
 
 ### 8) Link *.o files to make a bitcode file
