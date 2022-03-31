@@ -23,5 +23,6 @@ The output file can be either '.txt' or '.csv'.
 # Execution results
 ```bash
 [Name;;Description;;Range;;Increment;;Value;;Read_only]
-(e.g.,) Value = 1|2|3|4
+(e.g.,) RTL_ALT_FINAL;;This is the altitude the vehicle will move to as the final stage of Returning to Launch or after completing a mission. Set to zero to land.;;0 1000;;1;;;;
 ```
+Here, the separator of fields is ';;' and the separator of 'Value' field is '|', e.g., 1|2|3|4.
