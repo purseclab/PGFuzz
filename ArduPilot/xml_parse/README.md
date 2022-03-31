@@ -3,7 +3,7 @@
 In order to mutate configuration parameters, we need to firstly know what are the valid ranges of the parameters.
 
 This is a XML parser for ArduPilot. <br>
-It parses the following properties from xml files: <br>
+It parses the following properties from XML files: <br>
 &emsp;&emsp;(1) Parameter name <br>
 &emsp;&emsp;(2) Description <br>
 &emsp;&emsp;(3) Valid range <br>
