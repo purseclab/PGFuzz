@@ -10,6 +10,9 @@ It parses the following properties from XML files: <br>
 &emsp;&emsp;(4) Increment unit <br>
 &emsp;&emsp;(5) Read-only or not <br>
 
+# Where can we get such XML files?
+<a href="https://ardupilot.org/dev/docs/mavlink-get-set-params.html" target="_blank"> Getting and setting parameters </a>
+
 # How to execute it?
 ```bash
 python xml_parse_ardupilot.py -i ./apm_pdef_copter.xml -o ./output_copter.csv
