@@ -1,5 +1,8 @@
 # PGFUZZ for ArduPilot
 
+## Parsing valid ranges of configuration parameters
+Please refer to <a href="https://github.com/purseclab/PGFUZZ/tree/main/ArduPilot/xml_parse" target="_blank"> this</a>.
+
 ## Mapping inputs to states (terms)
 Please refer to <a href="https://github.com/purseclab/PGFUZZ/tree/main/ArduPilot/Dynamic%20analysis" target="_blank"> this</a>.
 
