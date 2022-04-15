@@ -68,7 +68,7 @@ Here, I would like to explain how to convert ArduPilot to a bitcode file because
 
 ### 1) Environment
 - ArduPilot: copter 4.1 version (https://github.com/ArduPilot/ardupilot/commit/68619c308737e5199992a9523bacabe9710c8e7e)
-- LLVM 10.0.0
+- LLVM 13.0.0
 - Ubuntu 20.04
 
 ### 2) Modify "Tools/ardupilotwaf/toolchain.py" file as follows
@@ -126,7 +126,7 @@ ArduPilot root folder/build/sitl>llvm-link ./modules/uavcan/libuavcan/src/uc_err
 ## 7. Convert PX4 source code to a bitcode file for static analysis
 ### 1) Environment
 - PX4: v1.12.3 version (https://github.com/PX4/PX4-Autopilot/commit/2e8918da66af37922ededee1cc2d2efffec4cfb2)
-- LLVM 10.0.0
+- LLVM 13.0.0
 - Ubuntu 20.04
 
 ### 2) Add compile options
@@ -157,3 +157,43 @@ It will probably produce some errors. You need to modify PX source code based on
 ```bash
 PX4 root folder$ llvm-link [all object files] -o px4.bc -S
 ```
+## 8. Data flow analysis (for mapping configuration parameters to related terms in the MTL formulas)
+### 1) Environment
+- LLVM 13.0.0
+- Ubuntu 20.04
+
+### 2) Install SVF (Static Value-Flow Analysis Framework)
+```bash
+sudo apt-get update 
+sudo apt-get upgrade 
+sudo snap install cmake --classic
+sudo apt install build-essential 
+sudo apt-get install libtinfo-dev 
+sudo apt install zlib1g 
+sudo apt install zlib1g-dev
+sudo apt install libncurses5
+sudo apt install xdot
+git clone https://github.com/KimHyungSub/SVF.git
+cd SVF
+source ./build.sh
+```
+
+### 3) Install SVF-data-flow
+```bash
+https://github.com/KimHyungSub/SVF-data-flow.git
+npm i --silent svf-lib --prefix ${HOME}
+source ./env.sh
+cmake . && make
+```
+
+### 4) Analyze a ArduPilot bc file using svf-data-flow executable
+- 'trace_target_list.txt' contains a list of configuration parameters.<br>
+- This executable reads 'trace_target_list.txt' and then collects all the uses of each configuration parameter.<br>
+- You can check the analysis output in 'output.txt'.<br>
+```
+./bin/svf-data-flow copter_4_1_llvm_13.bc > output.txt
+```
+### 5) Tips 
+- The bc file must be complied by the same LLVM version of this SVF's one (LLVM 13.0.0).<br>
+- If you want to analyze other configuration parameters, please put new configuration parameters into 'trace_target_list.txt'<br>
+- This data flow analysis also can be used to trace other variables in RV control software.<br>
