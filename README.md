@@ -208,4 +208,4 @@ cmake . && make
 ### 5) Tips 
 - The bc file must be complied by the same LLVM version of this SVF's one (LLVM 13.0.0).<br>
 - If you want to analyze other configuration parameters, please put new configuration parameters into 'trace_target_list.txt'<br>
-- This data flow analysis also can be used to trace other variables in RV control software.<br>
+- This data flow analysis also can be used to trace other variables in drone control software.<br>
