@@ -37,7 +37,7 @@ cd ~
 cd pgfuzz
 ```
 
-## 4. Bugs discovered by PGFUZZ
+## 4. Bugs discovered by PGFuzz
 If you want to closely look into bug cases discovered by PGFUZZ, please review the below documentation. 
 <a href="https://docs.google.com/spreadsheets/d/1zhCx4SzuMZQDMSzBtofIpiqJt2DfjhDlPYxJy1D023M/edit?usp=sharing"> <img align="center" width="760"  src="https://kimhyungsub.github.io/Bug_report.jpg"> </a>
 
