@@ -207,5 +207,7 @@ cmake . && make
 ```
 ### 5) Tips 
 - The bc file must be complied by the same LLVM version of this SVF's one (LLVM 13.0.0).<br>
-- If you want to analyze other configuration parameters, please put new configuration parameters into 'trace_target_list.txt'<br>
+- If you want to analyze other configuration parameters, please put new configuration parameters into _trace_target_list.txt_<br>
 - This data flow analysis also can be used to trace other variables in drone control software.<br>
+- The sample bc file (_copter_4_1_llvm_13.bc_) does not contain whole ArduPilot source code.<br>
+- Your machine must be equipped with 64GB - 128GB RAM when you analyze whole ArduPilot/PX4 bc files.<br>
