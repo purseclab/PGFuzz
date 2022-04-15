@@ -63,6 +63,18 @@ When a user assigns a negative value to the parameter, it affects the decision t
 Specifically, if the flight mode is not ORBIT or the drone stays at the same location, PX4 correctly triggers the GPS fail-safe. 
 This observation makes it difficult for the developers to notice the bug. 
 
+## Note
+We release implementation details below in the hope of benefiting others.<br>
+You are kindly asked to acknowledge usage of the effort by citing our paper.<br>
+```
+@inproceedings{kim2021pgfuzz,
+  title={PGFUZZ: Policy-Guided Fuzzing for Robotic Vehicles},
+  author={Kim, Hyungsub and Ozmen, Muslum Ozgur and Bianchi, Antonio and Celik, Z Berkay and Xu, Dongyan},
+  booktitle={Proceedings of the Network and Distributed System Security Symposium (NDSS)},
+  year={2021}
+}
+```
+
 ## 6. Convert ArduPilot source code to a bitcode file for static analysis
 Here, I would like to explain how to convert ArduPilot to a bitcode file because I got several emails asking about it.
 
