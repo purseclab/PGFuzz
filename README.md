@@ -180,13 +180,13 @@ source ./build.sh
 
 ### 3) Install SVF-data-flow
 ```bash
-https://github.com/KimHyungSub/SVF-data-flow.git
+git clone https://github.com/KimHyungSub/SVF-data-flow.git
 npm i --silent svf-lib --prefix ${HOME}
 source ./env.sh
 cmake . && make
 ```
 
-### 4) Analyze a ArduPilot bc file using svf-data-flow executable
+### 4) Analyze an ArduPilot bc file using svf-data-flow executable
 - 'trace_target_list.txt' contains a list of configuration parameters.<br>
 - This executable reads 'trace_target_list.txt' and then collects all the uses of each configuration parameter.<br>
 - You can check the analysis output in 'output.txt'.<br>
