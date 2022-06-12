@@ -111,6 +111,7 @@ Add following options into CFLAGS and CXXFLAGS arrays
 ```bash
 '-c', '-Xclang', '-O0', '-emit-llvm', '-S', '-fno-discard-value-names', '-g'
 ```
+*Caution*: '-g' option is to create debug symbols. I recommend you to turn on this option only if you need to leverage the debug symbols.
 
 ### 5) Execute the following command
 ```bash
@@ -149,7 +150,7 @@ PX4 root folder/Firmware/cmake$ vim px4_add_common_flags.cmake
 Add '-c', '-Xclang', '-O0', '-emit-llvm', '-S', '-fno-discard-value-names', '-g' options into 'add_compile_options'
 ```bash
 add_compile_options(
-                -g # always build debug symbols
+                -g # Create debug symbols
 
                 -c
                 -Xclang
@@ -157,7 +158,6 @@ add_compile_options(
                 -emit-llvm
                 -S
                 -fno-discard-value-names
-                -g
 ```
 
 ### 3) Compile PX4
