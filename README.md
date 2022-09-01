@@ -15,6 +15,20 @@ We assume that you already finished setup for executing ArduPilot, PX4 and Papar
 - <a href="https://docs.px4.io/master/en/dev_setup/dev_env_linux_ubuntu.html" target="_blank"> PX4 setup </a>
 - <a href="https://wiki.paparazziuav.org/wiki/NPS" target="_blank"> Paparazzi setup </a>
 
+- <b>Installing pymavlink on Ubuntu 20.04</b> <br>
+Installing pymavlink using pip is broken right now. <br>
+Instead, you can install pymavlink from source code.
+```
+sudo apt-get install gcc python-dev libxml2-dev libxslt-dev
+sudo apt-get install python-numpy python-pytest
+sudo python2 -m pip install --upgrade future lxml
+
+git clone https://github.com/ArduPilot/mavlink.git
+cd mavlink
+cd pymavlink
+sudo MDEF=`pwd`/../message_definitions python2 -m pip install . -v
+```
+
 ## 2. Download PGFuzz
 ```bash
 cd ~
