@@ -206,7 +206,8 @@ source ./build.sh
 ```
 
 ### 3) Install SVF-data-flow
-You can find details of the implementation in <a href="https://github.com/KimHyungSub/SVF-data-flow/blob/master/src/SVF-data-flow.cpp">here</a>. 
+Please note that this version is forked from <a href="https://github.com/SVF-tools/SVF-example" target="_blank">SVF-example</a>.
+You can find details of the implementation in <a href="https://github.com/KimHyungSub/SVF-data-flow/blob/master/src/SVF-data-flow.cpp" target="_blank">here</a>. 
 ```bash
 git clone https://github.com/KimHyungSub/SVF-data-flow.git
 npm i --silent svf-lib --prefix ${HOME}
