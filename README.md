@@ -6,8 +6,6 @@ PGFuzz is a policy-guided fuzzing framework. You can freely use it to define and
 <a href="https://kimhyungsub.github.io/NDSS21_hskim.pdf"> <img align="right" width="220"  src="https://kimhyungsub.github.io/PGFUZZ_paper_cover.png"> </a>
 </p>
 
-The current PGFuzz version is for ArduPilot. We will upload other verions of PGFUZZ for PX4 and Paparazzi after we finish checking each component's functionality.
-
 ## 1. Setup
 We assume that you already finished setup for executing ArduPilot, PX4 and Paparazzi on Ubuntu LTS / Debian Linux. <br>
 - <a href="https://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux" target="_blank"> ArduPilot setup </a>
