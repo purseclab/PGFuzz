@@ -43,6 +43,10 @@ It creates two terminal windows.
 
 ### First terminal window
 It is a SITL Simulator (Software in the Loop). You can monitor the RV's current states such as altitude and attitude.<br>
+<img src="https://github.com/purseclab/PGFuzz/blob/main/PX4/example/pgfuzz_px4_terminal1.png" width="732" height="336">
+<img src="https://github.com/purseclab/PGFuzz/blob/main/PX4/example/pgfuzz_px4_terminal1_3.png" width="697.5" height="518.5">
+<img src="https://github.com/purseclab/PGFuzz/blob/main/PX4/example/pgfuzz_px4_terminal1_2.png" width="509" height="374">
 
 ### Second terminal window
 It shows status of fuzzing such as mutated inputs, violated policies, propositional, and global distances.<br>
+<img src="https://github.com/purseclab/PGFuzz/blob/main/PX4/example/pgfuzz_px4_terminal2.png" width="731.5" height="352.5">
