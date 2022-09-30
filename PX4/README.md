@@ -34,7 +34,7 @@ You should execute QGroundControl and turn on the virtual joystick as follows.
 
 ### Execute PGFuzz
 ```bash
-cd ~/pgfuzz/px4_pgfuzz/
+cd ~/pgfuzz/pgfuzz/PX4/
 python2 pgfuzz.py -i false
 ```
 Here, 'i' option decides whether the input mutation will be bounded or unbounded.
