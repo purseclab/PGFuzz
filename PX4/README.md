@@ -29,6 +29,7 @@ export PX4_HOME=/home/pgfuzz/px4_pgfuzz/
 ```
 
 ### Execute PGFuzz
+You should execute QGroundControl and turn on the virtual joystick before running commands below.
 ```bash
 cd ~/pgfuzz/px4_pgfuzz/
 python2 pgfuzz.py -i false
