@@ -1,4 +1,4 @@
-# PGFUZZ for ArduPilot
+# PGFuzz for ArduPilot
 
 ## Parsing valid ranges of configuration parameters
 Please refer to <a href="https://github.com/purseclab/PGFUZZ/tree/main/ArduPilot/xml_parse" target="_blank"> this</a>.
@@ -23,13 +23,13 @@ cd ~/ardupilot_pgfuzz/
 ```
 
 ### Add environment variables
-They must point to your pgfuzz and ArduPilot directories.
+You must point to your pgfuzz and ArduPilot directories.
 ```bash
 export PGFUZZ_HOME=/home/pgfuzz/pgfuzz/
 export ARDUPILOT_HOME=/home/pgfuzz/ardupilot_pgfuzz/
 ```
 
-### Execute PGFUZZ
+### Execute PGFuzz
 ```bash
 cd ~/pgfuzz/ArduPilot/
 python2 pgfuzz.py
