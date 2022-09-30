@@ -1,4 +1,4 @@
-# PGFUZZ for PX4
+# PGFuzz for PX4
 
 ## Parsing valid ranges of configuration parameters
 Please refer to <a href="https://github.com/purseclab/PGFuzz/tree/main/PX4/xml_parse" target="_blank"> this</a>.
@@ -28,7 +28,7 @@ export PGFUZZ_HOME=/home/pgfuzz/pgfuzz/
 export PX4_HOME=/home/pgfuzz/px4_pgfuzz/
 ```
 
-### Execute PGFUZZ
+### Execute PGFuzz
 ```bash
 cd ~/pgfuzz/px4_pgfuzz/
 python2 pgfuzz.py -i false
