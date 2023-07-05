@@ -11,6 +11,7 @@ Please refer to <a href="https://github.com/purseclab/PGFUZZ/tree/main/ArduPilot
 **Option1**: If you want to test a specific software version, please checkout a commit hash after cloning ArduPilot.
 ```bash
 cd ~
+cd PGFuzz
 git clone https://github.com/ArduPilot/ardupilot.git ardupilot_pgfuzz
 cd ardupilot_pgfuzz
 git checkout ea559a56aa2ce9ede932e22e5ea28eb1df07781c
@@ -20,6 +21,7 @@ git submodule update --init --recursive
 **Option2**: If you want to test the latest version, please update submodule without the checkout step.
 ```bash
 cd ~
+cd PGFuzz
 git clone https://github.com/ArduPilot/ardupilot.git ardupilot_pgfuzz
 cd ardupilot_pgfuzz
 git submodule update --init --recursive
@@ -27,7 +29,7 @@ git submodule update --init --recursive
 
 ### 3-2) Check whether ArduPilot works well on your environment
 ```bash
-cd ~/ardupilot_pgfuzz/
+cd ~/PGFuzz/ardupilot_pgfuzz/
 ./Tools/autotest/sim_vehicle.py -v ArduCopter --console --map -w
 ```
 
@@ -45,7 +47,7 @@ export ARDUPILOT_HOME=/home/hskim/PGFuzz/ardupilot_pgfuzz/
 
 ### 3-4) Execute PGFuzz
 ```bash
-cd ~/PGFuzz/ArduPilot/
+cd ~/PGFuzz/PGFuzz/ArduPilot/
 python2 pgfuzz.py
 ```
 

@@ -8,24 +8,40 @@ Please refer to <a href="https://github.com/purseclab/PGFUZZ/tree/main/ArduPilot
 
 ## How to execute it?
 ### Download PX4
+**Option1**: If you want to test a specific software version, please checkout a commit hash after cloning PX4.
 ```bash
 cd ~
+cd PGFuzz
 git clone https://github.com/PX4/PX4-Autopilot.git px4_pgfuzz
 cd px4_pgfuzz
 git checkout 9524e8ec032c9c4c9cd8b8860a1675ab998e9997
 git submodule update --init --recursive
 ```
 
+**Option2**: If you want to test the latest version, please update submodule without the checkout step.
+```bash
+cd ~
+cd PGFuzz
+git clone https://github.com/PX4/PX4-Autopilot.git px4_pgfuzz
+cd px4_pgfuzz
+git submodule update --init --recursive
+```
+
 ### Check whether PX4 works well on your environment
 ```bash
-cd ~/px4_pgfuzz/
+cd ~/PGFuzz/px4_pgfuzz/
 make px4_sitl_default jmavsim 
 ```
 ### Add environment variables
 You must point to your pgfuzz and PX4 directories.
 ```bash
-export PGFUZZ_HOME=/home/pgfuzz/pgfuzz/
-export PX4_HOME=/home/pgfuzz/px4_pgfuzz/
+export PGFUZZ_HOME=/home/[Your user account name]/PGFuzz/PGFuzz/
+export PX4_HOME=/home/[Your user account name]/PGFuzz/px4_pgfuzz/
+```
+e.g., my user account name is 'hskim'.
+```bash
+export PGFUZZ_HOME=/home/hskim/PGFuzz/PGFuzz/
+export PX4_HOME=/home/hskim/PGFuzz/px4_pgfuzz/
 ```
 
 ### Turn on a virtual joystick
@@ -34,7 +50,7 @@ You should execute QGroundControl and turn on the virtual joystick as follows.
 
 ### Execute PGFuzz
 ```bash
-cd ~/pgfuzz/pgfuzz/PX4/
+cd ~/PGFuzz/pgfuzz/PX4/
 python2 pgfuzz.py -i false
 ```
 Here, 'i' option decides whether the input mutation will be bounded or unbounded.

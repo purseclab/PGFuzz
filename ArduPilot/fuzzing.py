@@ -27,6 +27,8 @@ import time
 import timeit
 import re
 import math
+from optparse import OptionParser
+import sys, os, getopt
 
 # ------------------------------------------------------------------------------------
 # Global variables
@@ -1553,7 +1555,7 @@ def calculate_distance(guidance):
     if PRINT_DEBUG == 1:
         print("[Debug] RC_pitch:%d, circle_radius_t:%f, circle_radius_(t-1):%f" % (current_rc_2, circle_radius_current, circle_radius_previous))
 
-    Global_distance = -1 * (min(P[0], P[1], P[2], P[3]))
+    Global_distance = -1 * (min(P[0], P[1], P[2]))
 
     print_distance(G_dist=Global_distance, P_dist=P, length=3, policy="A.CIRCLE2", guid=guidance)
     # ----------------------- (end) A.CIRCLE2 policy -----------------------
@@ -2237,7 +2239,7 @@ def execute_cmd(num):
     for i in range(7):
         rand.append(random.randint(1, 100))
 
-    # To do: implement all if statements for all user commands
+    # To do: Implement all if statements for all user commands
 
     Current_input = read_inputs.cmd_name[num]
 
@@ -2409,240 +2411,248 @@ def pick_up_cmd():
     elif input_type == 3:
         execute_env(num=random.randint(0, len(read_inputs.env_name) - 1))
 
-
 # ------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------
-# Parsing parameters
-# To do: update the below path according to a changed target policy
-f_path_def = ""
-f_path_def += "./policies/"
-f_path_def += Current_policy
+# ------------------------------------------------------------------------------------
+def main(argv):
+    global Precondition_path
 
-print("#-----------------------------------------------------------------------------")
-params_path = ""
-params_path += f_path_def
-params_path += "/parameters.txt"
-read_inputs.parsing_parameter(params_path)
-print("# Check whether parsing parameters well done or not, received # of params: %d" % len(read_inputs.param_name))
-print(read_inputs.param_name)
+    # ------------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------------
+    # Parsing parameters
+    # Update the below path according to a changed target policy
+    f_path_def = ""
+    f_path_def += "./policies/"
+    f_path_def += Current_policy
 
-cmd_path = ""
-cmd_path += f_path_def
-cmd_path += "/cmds.txt"
+    print("#-----------------------------------------------------------------------------")
+    params_path = ""
+    params_path += f_path_def
+    params_path += "/parameters.txt"
+    read_inputs.parsing_parameter(params_path)
+    print("# Check whether parsing parameters well done or not, received # of params: %d" % len(read_inputs.param_name))
+    print(read_inputs.param_name)
 
-read_inputs.parsing_command(cmd_path)
-print("# Check whether parsing user commands well done or not, received # of params: %d" % len(read_inputs.cmd_name))
-print(read_inputs.cmd_name)
+    cmd_path = ""
+    cmd_path += f_path_def
+    cmd_path += "/cmds.txt"
 
-env_path = ""
-env_path += f_path_def
-env_path += "/envs.txt"
+    read_inputs.parsing_command(cmd_path)
+    print("# Check whether parsing user commands well done or not, received # of params: %d" % len(read_inputs.cmd_name))
+    print(read_inputs.cmd_name)
 
-read_inputs.parsing_env(env_path)
-print("# Check whether parsing environmental factors well done or not, received # of params: %d" % len(
-    read_inputs.env_name))
-print(read_inputs.env_name)
-print("#-----------------------------------------------------------------------------")
+    env_path = ""
+    env_path += f_path_def
+    env_path += "/envs.txt"
 
-master.wait_heartbeat()
+    read_inputs.parsing_env(env_path)
+    print("# Check whether parsing environmental factors well done or not, received # of params: %d" % len(
+        read_inputs.env_name))
+    print(read_inputs.env_name)
+    print("#-----------------------------------------------------------------------------")
 
-# request data to be sent at the given rate
-for i in range(0, 3):
-    master.mav.request_data_stream_send(master.target_system, master.target_component,
-                                        mavutil.mavlink.MAV_DATA_STREAM_ALL, 6, 1)
+    master.wait_heartbeat()
 
-message = master.recv_match(type='VFR_HUD', blocking=True)
-home_altitude = message.alt
-print("home_altitude: %f" % home_altitude)
+    # request data to be sent at the given rate
+    for i in range(0, 3):
+        master.mav.request_data_stream_send(master.target_system, master.target_component,
+                                            mavutil.mavlink.MAV_DATA_STREAM_ALL, 6, 1)
 
-message = master.recv_match(type='GLOBAL_POSITION_INT', blocking=True)
-home_lat = message.lat
-home_lat = home_lat / 1000
-home_lat = home_lat * 1000
-home_lon = message.lon
-home_lon = home_lon / 1000
-home_lon = home_lon * 1000
-print("home_lat: %f, home_lon: %f" % (home_lat, home_lon))
+    message = master.recv_match(type='VFR_HUD', blocking=True)
+    home_altitude = message.alt
+    print("home_altitude: %f" % home_altitude)
 
-# Testing --------------------------------------------------------------------------------------
-for i in range(30):
-    P.append(0)
-    Previous_distance.append(0)
+    message = master.recv_match(type='GLOBAL_POSITION_INT', blocking=True)
+    home_lat = message.lat
+    home_lat = home_lat / 1000
+    home_lat = home_lat * 1000
+    home_lon = message.lon
+    home_lon = home_lon / 1000
+    home_lon = home_lon * 1000
+    print("home_lat: %f, home_lon: %f" % (home_lat, home_lon))
 
-# Choose a mode
-mode = 'GUIDED'
+    # Testing --------------------------------------------------------------------------------------
+    for i in range(30):
+        P.append(0)
+        Previous_distance.append(0)
 
-# Check if mode is available
-if mode not in master.mode_mapping():
-    print('Unknown mode : {}'.format(mode))
-    print('Try:', list(master.mode_mapping().keys()))
-    exit(1)
+    # Choose a mode
+    mode = 'GUIDED'
 
-# Get mode ID
-mode_id = master.mode_mapping()[mode]
+    # Check if mode is available
+    if mode not in master.mode_mapping():
+        print('Unknown mode : {}'.format(mode))
+        print('Try:', list(master.mode_mapping().keys()))
+        exit(1)
 
-master.mav.set_mode_send(
-    master.target_system,
-    mavutil.mavlink.MAV_MODE_FLAG_CUSTOM_MODE_ENABLED,
-    mode_id)
+    # Get mode ID
+    mode_id = master.mode_mapping()[mode]
 
-# Check ACK
-ack = False
-while not ack:
-    # Wait for ACK command
-    ack_msg = master.recv_match(type='COMMAND_ACK', blocking=True)
-    ack_msg = ack_msg.to_dict()
+    master.mav.set_mode_send(
+        master.target_system,
+        mavutil.mavlink.MAV_MODE_FLAG_CUSTOM_MODE_ENABLED,
+        mode_id)
 
-    # Check if command in the same in `set_mode`
-    if ack_msg['command'] != mavutil.mavlink.MAVLINK_MSG_ID_SET_MODE:
-        continue
+    # Check ACK
+    ack = False
+    while not ack:
+        # Wait for ACK command
+        ack_msg = master.recv_match(type='COMMAND_ACK', blocking=True)
+        ack_msg = ack_msg.to_dict()
 
-    # Print the ACK result !
-    print(mavutil.mavlink.enums['MAV_RESULT'][ack_msg['result']].description)
-    break
+        # Check if command in the same in `set_mode`
+        if ack_msg['command'] != mavutil.mavlink.MAVLINK_MSG_ID_SET_MODE:
+            continue
 
-master.mav.command_long_send(
-    master.target_system,
-    master.target_component,
-    mavutil.mavlink.MAV_CMD_COMPONENT_ARM_DISARM,
-    0,
-    1, 0, 0, 0, 0, 0, 0)
+        # Print the ACK result !
+        print(mavutil.mavlink.enums['MAV_RESULT'][ack_msg['result']].description)
+        break
 
-ack = False
-while not ack:
-    # Wait for ACK command
-    ack_msg = master.recv_match(type='COMMAND_ACK', blocking=True)
-    ack_msg = ack_msg.to_dict()
+    master.mav.command_long_send(
+        master.target_system,
+        master.target_component,
+        mavutil.mavlink.MAV_CMD_COMPONENT_ARM_DISARM,
+        0,
+        1, 0, 0, 0, 0, 0, 0)
 
-    print(mavutil.mavlink.enums['MAV_RESULT'][ack_msg['result']].description)
-    break
+    ack = False
+    while not ack:
+        # Wait for ACK command
+        ack_msg = master.recv_match(type='COMMAND_ACK', blocking=True)
+        ack_msg = ack_msg.to_dict()
 
-time.sleep(1)
+        print(mavutil.mavlink.enums['MAV_RESULT'][ack_msg['result']].description)
+        break
 
-master.mav.command_long_send(
-    master.target_system,  # target_system
-    master.target_component,  # target_component
-    mavutil.mavlink.MAV_CMD_NAV_TAKEOFF,  # command
-    0,  # confirmation
-    0,  # param1
-    0,  # param2
-    0,  # param3
-    0,  # param4
-    0,  # param5
-    0,  # param6
-    100)  # param7- altitude
+    time.sleep(1)
 
-ack = False
-while not ack:
-    # Wait for ACK command
-    ack_msg = master.recv_match(type='COMMAND_ACK', blocking=True)
-    ack_msg = ack_msg.to_dict()
+    master.mav.command_long_send(
+        master.target_system,  # target_system
+        master.target_component,  # target_component
+        mavutil.mavlink.MAV_CMD_NAV_TAKEOFF,  # command
+        0,  # confirmation
+        0,  # param1
+        0,  # param2
+        0,  # param3
+        0,  # param4
+        0,  # param5
+        0,  # param6
+        100)  # param7- altitude
 
-    print(mavutil.mavlink.enums['MAV_RESULT'][ack_msg['result']].description)
-    break
+    ack = False
+    while not ack:
+        # Wait for ACK command
+        ack_msg = master.recv_match(type='COMMAND_ACK', blocking=True)
+        ack_msg = ack_msg.to_dict()
 
-# This is for testing A.RTL1
-time.sleep(25)
-# time.sleep(3)
+        print(mavutil.mavlink.enums['MAV_RESULT'][ack_msg['result']].description)
+        break
+
+    # This is for testing A.RTL1
+    time.sleep(25)
+    # time.sleep(3)
 
 
-# Maintain mid-position of stick on RC controller
-goal_throttle = 1500
-t1 = threading.Thread(target=throttle_th, args=())
-t1.daemon = True
-t1.start()
+    # Maintain mid-position of stick on RC controller
+    goal_throttle = 1500
+    t1 = threading.Thread(target=throttle_th, args=())
+    t1.daemon = True
+    t1.start()
 
-mode_id = master.mode_mapping()['ALT_HOLD']
-master.mav.set_mode_send(
-    master.target_system,
-    mavutil.mavlink.MAV_MODE_FLAG_CUSTOM_MODE_ENABLED,
-    mode_id)
-# Set default throttle
-set_rc_channel_pwm(3, 1500)
+    mode_id = master.mode_mapping()['ALT_HOLD']
+    master.mav.set_mode_send(
+        master.target_system,
+        mavutil.mavlink.MAV_MODE_FLAG_CUSTOM_MODE_ENABLED,
+        mode_id)
+    # Set default throttle
+    set_rc_channel_pwm(3, 1500)
 
-time.sleep(3)
+    time.sleep(3)
 
-t2 = threading.Thread(target=read_loop, args=())
-t2.daemon = True
-t2.start()
+    t2 = threading.Thread(target=read_loop, args=())
+    t2.daemon = True
+    t2.start()
 
-mutated_log = open("mutated_log.txt", "w")
-mutated_log.close()
+    mutated_log = open("mutated_log.txt", "w")
+    mutated_log.close()
 
-guidance_log = open("guidance_log.txt", "w")
-guidance_log.close()
+    guidance_log = open("guidance_log.txt", "w")
+    guidance_log.close()
 
-# Set some preconditions to test a policy
-# To do: when I switch to another target policy, I need to update the 'Precondition_path'.
-Precondition_path += "./policies/"
-Precondition_path += Current_policy
-Precondition_path += "/preconditions.txt"
-set_preconditions(Precondition_path)
+    # Set some preconditions to test a policy
+    # When I switch to another target policy, I need to update the 'Precondition_path'.
+    Precondition_path += "./policies/"
+    Precondition_path += Current_policy
+    Precondition_path += "/preconditions.txt"
+    set_preconditions(Precondition_path)
 
-# Check liveness of the RV software
+    # Check liveness of the RV software
 
-t3 = threading.Thread(target=check_liveness, args=())
-t3.daemon = True
-t3.start()
+    t3 = threading.Thread(target=check_liveness, args=())
+    t3.daemon = True
+    t3.start()
 
-# Main loop
-while True:
+    # Main loop
+    while True:
 
-    global drone_status
-    global executing_commands
-    global home_altitude
-    global current_altitude
-    global Armed
-    global Parachute_on
-    global count_main_loop
-    global goal_throttle
-    global RV_alive
-    global hit_ground
+        global drone_status
+        global executing_commands
+        global home_altitude
+        global current_altitude
+        global Armed
+        global Parachute_on
+        global count_main_loop
+        global goal_throttle
+        global RV_alive
+        global hit_ground
 
-    # print("[Debug] drone_status:%d" %drone_status)
+        # print("[Debug] drone_status:%d" %drone_status)
 
-    # if RV is still active state
-    if drone_status == 4:
-        Armed = 1
-        executing_commands = 1
-        print("### Next round (%d) for fuzzing commands. ###" % count_main_loop)
-        count_main_loop += 1
+        # if RV is still active state
+        if drone_status == 4:
+            Armed = 1
+            executing_commands = 1
+            print("### Next round (%d) for fuzzing commands. ###" % count_main_loop)
+            count_main_loop += 1
 
-        # Calculate propositional and global distances
-        calculate_distance(guidance="false")
+            # Calculate propositional and global distances
+            calculate_distance(guidance="false")
 
-        pick_up_cmd()
+            pick_up_cmd()
 
-        # Calculate distances to evaluate effect of the executed input
-        time.sleep(4)
-        calculate_distance(guidance="true")
-        goal_throttle = 1500
+            # Calculate distances to evaluate effect of the executed input
+            time.sleep(4)
+            calculate_distance(guidance="true")
+            goal_throttle = 1500
 
-        for i in range(4):
-            set_rc_channel_pwm(i + 1, 1500)
+            for i in range(4):
+                set_rc_channel_pwm(i + 1, 1500)
 
-        if Parachute_on == 1:
+            if Parachute_on == 1:
+                Armed = 0
+                re_launch()
+                count_main_loop = 0
+
+        # The vehicle is grounded
+        elif (drone_status == 3 and RV_alive == 1) or (hit_ground == 1):
+            print("[Debug] drone_status:%d" % drone_status)
+
+            if hit_ground == 1:
+                print("[Debug] *the drone hits ground*")
+
+            print("### Vehicle is grounded, Home alt:%f, Current alt:%f" % (home_altitude, current_altitude))
             Armed = 0
+            hit_ground = 0
             re_launch()
             count_main_loop = 0
 
-    # The vehicle is grounded
-    elif (drone_status == 3 and RV_alive == 1) or (hit_ground == 1):
-        print("[Debug] drone_status:%d" % drone_status)
+        # It is in mayday and going down
+        elif drone_status == 6:
+            Armed = 0
+            for i in range(1, 5):
+                print("@@@@@@@@@@ Drone losts control. It is in mayday and going down @@@@@@@@@@")
 
-        if hit_ground == 1:
-            print("[Debug] *the drone hits ground*")
+    print("-------------------- Fuzzing End --------------------")
 
-        print("### Vehicle is grounded, Home alt:%f, Current alt:%f" % (home_altitude, current_altitude))
-        Armed = 0
-        hit_ground = 0
-        re_launch()
-        count_main_loop = 0
-
-    # It is in mayday and going down
-    elif drone_status == 6:
-        Armed = 0
-        for i in range(1, 5):
-            print("@@@@@@@@@@ Drone losts control. It is in mayday and going down @@@@@@@@@@")
-
-print("-------------------- Fuzzing End --------------------")
+if __name__ == "__main__":
+   main(sys.argv[1:])
