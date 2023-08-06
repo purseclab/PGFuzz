@@ -19,10 +19,15 @@ Instead, you can install pymavlink from source code.
 ```
 sudo apt-get install gcc python-dev libxml2-dev libxslt-dev
 sudo apt-get install python-numpy python-pytest
+sudo apt install curl
+sudo apt install python2
+curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
+sudo python2 get-pip.py
 sudo python2 -m pip install --upgrade future lxml
 
 git clone https://github.com/ArduPilot/mavlink.git
 cd mavlink
+git submodule update --init --recursive
 cd pymavlink
 sudo MDEF=`pwd`/../message_definitions python2 -m pip install . -v
 ```
