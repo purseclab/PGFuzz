@@ -218,6 +218,19 @@ source ./env.sh
 cmake . && make
 ```
 
+#### :warning: Troubleshooting
+If the make command produces the error below,
+ ```bash
+a missing "SVF-FE/PAGBuilder.h"
+```
+Please check whether SVF version and SVF header files are installed well or not.
+![image](https://github.com/purseclab/PGFuzz/assets/21173273/00db4eaa-3823-47ec-bf72-4b9765d81976)
+![image](https://github.com/purseclab/PGFuzz/assets/21173273/a71164e4-a9ee-4879-a569-7b48aeed4e61)
+![image](https://github.com/purseclab/PGFuzz/assets/21173273/ecb5ac04-2124-4c53-91ba-6eef9ebc37b4)
+
+To suppress the error, you can also comment out "#include <SVF-FE/PAGBuilder.h>" in https://github.com/KimHyungSub/SVF-data-flow/blob/master/src/SVF-data-flow.cpp#L41
+
+
 ### 4) Analyze an ArduPilot bc file using svf-data-flow executable
 - 'trace_target_list.txt' contains a list of configuration parameters.<br>
 - This executable reads 'trace_target_list.txt' and then collects all the uses of each configuration parameter.<br>
